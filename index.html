@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM SMK | 公式サイト</title>
+
+    <!-- ファビコン -->
+    <link rel="icon" href="smk.png" type="image/png">
+
     <style>
         body {
             margin: 0;
@@ -39,7 +43,23 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #2d3436;
+        }
+
+        /* ★ロゴ画像 */
+        .logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
         }
 
         header h1 {
@@ -104,7 +124,6 @@
             border-radius: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #f0f0f0;
-            position: relative;
             text-align: center;
         }
 
@@ -136,7 +155,6 @@
             font-weight: bold;
             padding: 5px 15px;
             border-radius: 50px;
-            text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 15px;
             display: inline-block;
@@ -171,11 +189,13 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="bg-gradient"></div>
 
 <header>
+    <img src="smk.png" alt="SMK Logo" class="logo">
     <h1>TEAM SMK</h1>
     <p>CREATE OUR OWN VIBES</p>
 </header>
@@ -184,22 +204,20 @@
     <section class="section">
         <h2>わたしたちについて</h2>
         <p style="text-align: center; max-width: 700px; margin: 0 auto;">
-            「チームSMK」は、地元の親友3人で結成された運営・管理チームです。<br>
-            リーダーとサブリーダーを中心に、SNSからシステムまで自分たちで整え、<br>
-            常に新しい「おもしろい」を企画し続けています。
+            「チームSMK」は、地元の親友3人＋メンバーで結成された運営・管理チームです。<br>
+            SNSからシステムまで自分たちで整え、常に新しい「おもしろい」を企画し続けています。
         </p>
     </section>
 
     <div class="member-grid">
+
         <!-- 桜紅葉 -->
         <div class="member-card">
             <div class="badge bg-leader">リーダー</div>
             <div class="icon-circle">😎</div>
             <h3>桜紅葉</h3>
             <span class="job">担当：運営・管理</span>
-            <p class="bio">
-                チーム全体のまとめ役です。SNSアカウントの運営・管理や、システム管理の全般を担当。チームが最高のパフォーマンスを出せるよう、常に全体を俯瞰してコントロールしています。
-            </p>
+            <p class="bio">チーム全体のまとめ役。SNS・システム管理を担当。</p>
         </div>
 
         <!-- かい -->
@@ -208,9 +226,7 @@
             <div class="icon-circle">🎮</div>
             <h3>かい</h3>
             <span class="job">担当：管理</span>
-            <p class="bio">
-                リーダーを支えるチームの副責任者。緻密な管理能力を活かして、SNSやシステムが正常に動作するよう細部まで目を光らせる、チームにとって欠かせない守護神です。
-            </p>
+            <p class="bio">細かい管理と安定運営を支える守護神。</p>
         </div>
 
         <!-- モティモティ -->
@@ -219,21 +235,18 @@
             <div class="icon-circle">🎨</div>
             <h3>モティモティ</h3>
             <span class="job">担当：SNS管理・企画提案</span>
-            <p class="bio">
-                チームの調整役であり、アイデアマン。SNSの管理を行いながら、「次はこんなことをしよう！」というワクワクする企画を提案し、チームに新しい風を吹き込みます。
-            </p>
+            <p class="bio">企画提案とSNS運営でチームを動かす存在。</p>
         </div>
 
-        <!-- せい（追加） -->
+        <!-- せい -->
         <div class="member-card">
             <div class="badge bg-mod">メンバー</div>
             <div class="icon-circle">🔥</div>
             <h3>せい</h3>
             <span class="job">担当：企画提案・動画提供・盛り上げ</span>
-            <p class="bio">
-                チームのムードメーカー。新しい企画の提案や動画素材の提供を行い、常に場を盛り上げる存在としてチームに活気を与えます。
-            </p>
+            <p class="bio">ムードメーカーとして企画と動画で盛り上げる。</p>
         </div>
+
     </div>
 </div>
 
