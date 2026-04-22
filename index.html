@@ -96,7 +96,7 @@
             min-width: 100px;
         }
 
-        /* チーム専用ボタンのスタイル */
+        /* チーム専用ボタンのスタイル（ここだけ強化） */
         .intro-section-btn {
             display: inline-flex;
             align-items: center;
@@ -111,10 +111,25 @@
             font-weight: bold;
             box-shadow: 0 10px 20px rgba(110, 142, 251, 0.3);
             transition: all 0.3s ease;
+
+            /* 追加：ふわふわ */
+            animation: floatBtn 3s ease-in-out infinite;
         }
+
         .intro-section-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(110, 142, 251, 0.4);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(110, 142, 251, 0.5);
+        }
+
+        .intro-section-btn:active {
+            transform: translateY(0px) scale(0.98);
+        }
+
+        /* 追加アニメーション */
+        @keyframes floatBtn {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
         }
 
         .official-sns {
@@ -223,12 +238,11 @@
     <section class="section">
         <h2>わたしたちについて</h2>
         <p style="max-width: 700px; margin: 0 auto;">
-            「チームSMK」は、地元の友達5人で結成された運営・管理チームです。<br>
+            「チームSMK」は、友達で結成された運営・管理チームです。<br>
             SNSからシステムまで自分たちで整え、常に新しい「おもしろい」を企画し続けています。
         </p>
     </section>
 
-    <!-- 自己紹介ページへの独立ボタン -->
     <section class="section">
         <h2>MEMBER INTRODUCTION</h2>
         <p style="margin-bottom: 30px; color: #636e72;">メンバーの詳しいプロフィールはこちら</p>
@@ -242,11 +256,7 @@
         <ul class="history-list">
             <li class="history-item">
                 <span class="history-date">2026.01</span>
-                <span class="history-content">公式サイト リニューアル公開</span>
-            </li>
-            <li class="history-item">
-                <span class="history-date">2025.12</span>
-                <span class="history-content">公式SNS 総フォロワー数目標達成</span>
+                <span class="history-content">公式サイト 公開</span>
             </li>
         </ul>
     </section>
@@ -270,7 +280,6 @@
     </section>
 
     <div class="member-grid">
-        <!-- 各メンバーカード（ボタンなしのスッキリ版） -->
         <div class="member-card">
             <div class="badge bg-leader">リーダー</div>
             <div class="icon-circle bg-sakura">😎</div>
@@ -298,13 +307,6 @@
             <h3>せい</h3>
             <span class="job">企画・動画・盛り上げ</span>
             <p class="bio">ムードメーカーとして企画と動画で盛り上げる。</p>
-        </div>
-        <div class="member-card">
-            <div class="badge bg-mod">メンバー</div>
-            <div class="icon-circle bg-agre">🚙</div>
-            <h3>アグレ</h3>
-            <span class="job">企画提案・SNS管理</span>
-            <p class="bio">SNSの健全な運用と安全性を確保し、チームを支える。</p>
         </div>
     </div>
 </div>
