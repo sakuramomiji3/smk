@@ -5,22 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM SMK | 公式サイト</title>
 
-    <!-- ファビコン -->
     <link rel="icon" href="smk.png" type="image/png">
+    <link rel="stylesheet" href="https://cloudflare.com">
 
     <style>
         body {
             margin: 0;
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
-            /* 背景を水色一色に変更 */
             background-color: #f0f8ff;
             color: #2d3436;
             overflow-x: hidden;
-        }
-
-        /* 背景グラデーションのアニメーションを削除 */
-        .bg-gradient {
-            display: none;
         }
 
         header {
@@ -71,17 +65,12 @@
             padding: 0 40px 100px;
         }
 
-        /* コンテンツ部分の設定 */
-        .section, .member-card {
-            background: #ffffff;
-            border: 1px solid rgba(255,255,255,1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
         .section {
+            background: #ffffff;
             padding: 50px;
             border-radius: 30px;
             margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         h2 {
@@ -101,6 +90,70 @@
             border-radius: 2px;
         }
 
+        /* 活動実績 */
+        .history-list {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .history-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px dashed #dfe6e9;
+        }
+
+        .history-date {
+            font-weight: bold;
+            color: #6e8efb;
+            min-width: 100px;
+        }
+
+        /* チーム公式SNS - テキスト追加版 */
+        .official-sns {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .sns-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .sns-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .sns-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sns-name {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #636e72;
+        }
+
+        .x-twitter { background: #000000; }
+        .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .youtube { background: #ff0000; }
+
+        /* メンバーグリッド */
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -108,10 +161,12 @@
         }
 
         .member-card {
+            background: #ffffff;
             padding: 40px 30px;
             border-radius: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .member-card:hover {
@@ -119,7 +174,6 @@
             box-shadow: 0 30px 60px rgba(110, 142, 251, 0.15);
         }
 
-        /* アイコンサークルの個別カラー設定（固定） */
         .icon-circle {
             width: 120px;
             height: 120px;
@@ -130,7 +184,6 @@
             justify-content: center;
             font-size: 3.5rem;
             transform: rotate(-5deg);
-            transition: transform 0.3s ease;
         }
 
         .bg-sakura { background: #ffeaa7; }
@@ -139,16 +192,11 @@
         .bg-sei { background: #e8f8f5; }
         .bg-agre { background: #dfe6e9; }
 
-        .member-card:hover .icon-circle {
-            transform: rotate(0deg) scale(1.1);
-        }
-
         .badge {
             font-size: 0.75rem;
             font-weight: bold;
             padding: 5px 15px;
             border-radius: 50px;
-            letter-spacing: 0.1em;
             margin-bottom: 15px;
             display: inline-block;
         }
@@ -156,8 +204,6 @@
         .bg-leader { background: #ffeaa7; color: #d35400; }
         .bg-sub { background: #dff9fb; color: #0984e3; }
         .bg-mod { background: #e8f8f5; color: #16a085; }
-
-        h3 { margin: 10px 0; font-size: 1.5rem; }
 
         .job {
             font-size: 0.9rem;
@@ -180,6 +226,12 @@
             color: #b2bec3;
             letter-spacing: 0.2em;
         }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 20px 60px; }
+            .section { padding: 30px 20px; }
+            .official-sns { gap: 20px; }
+        }
     </style>
 </head>
 
@@ -192,6 +244,8 @@
 </header>
 
 <div class="container">
+    
+    <!-- わたしたちについて -->
     <section class="section">
         <h2>わたしたちについて</h2>
         <p style="text-align: center; max-width: 700px; margin: 0 auto;">
@@ -200,14 +254,55 @@
         </p>
     </section>
 
-    <div class="member-grid">
+    <!-- 活動実績 -->
+    <section class="section">
+        <h2>活動実績</h2>
+        <ul class="history-list">
+            <li class="history-item">
+                <span class="history-date">2026.04.22</span>
+                <span class="history-content">公式サイト 公開</span>
+            </li>
+        </ul>
+    </section>
 
+    <!-- チーム公式SNS -->
+    <section class="section">
+        <h2>OFFICIAL SNS</h2>
+        <div class="official-sns">
+            <!-- X (Twitter) -->
+            <a href="#" class="sns-item">
+                <div class="sns-btn x-twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </div>
+                <span class="sns-name">X (Twitter)</span>
+            </a>
+            
+            <!-- Instagram -->
+            <a href="#" class="sns-item">
+                <div class="sns-btn instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span class="sns-name">Instagram</span>
+            </a>
+            
+            <!-- YouTube -->
+            <a href="#" class="sns-item">
+                <div class="sns-btn youtube">
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+                <span class="sns-name">YouTube</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- メンバー紹介 -->
+    <div class="member-grid">
         <!-- 桜紅葉 -->
         <div class="member-card">
             <div class="badge bg-leader">リーダー</div>
             <div class="icon-circle bg-sakura">😎</div>
             <h3>桜紅葉</h3>
-            <span class="job">担当：SNS運営/管理・システム管理</span>
+            <span class="job">SNS運営/管理・システム管理</span>
             <p class="bio">チーム全体のまとめ役。SNS・システム管理を担当。</p>
         </div>
 
@@ -216,7 +311,7 @@
             <div class="badge bg-sub">サブリーダー</div>
             <div class="icon-circle bg-kai">⚾️</div>
             <h3>かい</h3>
-            <span class="job">担当：管理</span>
+            <span class="job">管理</span>
             <p class="bio">細かい管理と安定運営を支える守護神。</p>
         </div>
 
@@ -225,7 +320,7 @@
             <div class="badge bg-mod">メンバー</div>
             <div class="icon-circle bg-moti">🎨</div>
             <h3>モティモティ</h3>
-            <span class="job">担当：SNS管理・企画提案</span>
+            <span class="job">SNS管理・企画提案</span>
             <p class="bio">企画提案とSNS運営でチームを動かす存在。</p>
         </div>
 
@@ -234,7 +329,7 @@
             <div class="badge bg-mod">メンバー</div>
             <div class="icon-circle bg-sei">🐹</div>
             <h3>せい</h3>
-            <span class="job">担当：企画提案・動画提供・盛り上げ</span>
+            <span class="job">企画・動画提供・盛り上げ</span>
             <p class="bio">ムードメーカーとして企画と動画で盛り上げる。</p>
         </div>
 
@@ -243,11 +338,11 @@
             <div class="badge bg-mod">メンバー</div>
             <div class="icon-circle bg-agre">🚙</div>
             <h3>アグレ</h3>
-            <span class="job">担当：企画提案・SNS管理</span>
-            <p class="bio">SNSの健全な運用と安全性を確保。管理の面からチームを支える。</p>
+            <span class="job">企画提案・SNS管理</span>
+            <p class="bio">SNSの健全な運用と安全性を確保し、チームを支える。</p>
         </div>
-
     </div>
+
 </div>
 
 <footer>
