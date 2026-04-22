@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEAM SMK | 公式サイト</title>
     <style>
-        /* 全体の設定 */
         body {
             margin: 0;
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
@@ -14,7 +13,6 @@
             overflow-x: hidden;
         }
 
-        /* 背景に動くグラデーションを配置 */
         .bg-gradient {
             position: fixed;
             top: 0;
@@ -34,7 +32,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ヘッダー：モダンで大胆なデザイン */
         header {
             height: 60vh;
             display: flex;
@@ -62,7 +59,6 @@
             color: #636e72;
         }
 
-        /* コンテンツエリア */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -71,7 +67,7 @@
 
         .section {
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px); /* すりガラス効果 */
+            backdrop-filter: blur(10px);
             padding: 50px;
             border-radius: 30px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
@@ -96,7 +92,6 @@
             border-radius: 2px;
         }
 
-        /* メンバーカード：グリッドレイアウト */
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -123,7 +118,7 @@
             height: 120px;
             margin: 0 auto 25px;
             background: #f8f9fa;
-            border-radius: 40px; /* 角丸の四角でおしゃれに */
+            border-radius: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -136,7 +131,6 @@
             transform: rotate(0deg) scale(1.1);
         }
 
-        /* 役職バッジ */
         .badge {
             font-size: 0.75rem;
             font-weight: bold;
@@ -221,12 +215,23 @@
 
         <!-- モティモティ -->
         <div class="member-card">
-            <div class="badge bg-mod">モデレーター</div>
+            <div class="badge bg-mod">メンバー</div>
             <div class="icon-circle">🎨</div>
             <h3>モティモティ</h3>
             <span class="job">担当：SNS管理・企画提案</span>
             <p class="bio">
                 チームの調整役であり、アイデアマン。SNSの管理を行いながら、「次はこんなことをしよう！」というワクワクする企画を提案し、チームに新しい風を吹き込みます。
+            </p>
+        </div>
+
+        <!-- せい（追加） -->
+        <div class="member-card">
+            <div class="badge bg-mod">メンバー</div>
+            <div class="icon-circle">🔥</div>
+            <h3>せい</h3>
+            <span class="job">担当：企画提案・動画提供・盛り上げ</span>
+            <p class="bio">
+                チームのムードメーカー。新しい企画の提案や動画素材の提供を行い、常に場を盛り上げる存在としてチームに活気を与えます。
             </p>
         </div>
     </div>
