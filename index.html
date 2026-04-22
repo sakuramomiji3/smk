@@ -96,7 +96,6 @@
             min-width: 100px;
         }
 
-        /* チーム専用ボタンのスタイル（ここだけ強化） */
         .intro-section-btn {
             display: inline-flex;
             align-items: center;
@@ -111,25 +110,10 @@
             font-weight: bold;
             box-shadow: 0 10px 20px rgba(110, 142, 251, 0.3);
             transition: all 0.3s ease;
-
-            /* 追加：ふわふわ */
-            animation: floatBtn 3s ease-in-out infinite;
         }
-
         .intro-section-btn:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(110, 142, 251, 0.5);
-        }
-
-        .intro-section-btn:active {
-            transform: translateY(0px) scale(0.98);
-        }
-
-        /* 追加アニメーション */
-        @keyframes floatBtn {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0px); }
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(110, 142, 251, 0.4);
         }
 
         .official-sns {
@@ -228,21 +212,24 @@
     </style>
 </head>
 <body>
+
 <header>
     <img src="smk.png" alt="SMK Logo" class="logo">
     <h1>TEAM SMK</h1>
     <p>CREATE OUR OWN VIBES</p>
 </header>
+
 <div class="container">
-    
+
     <section class="section">
         <h2>わたしたちについて</h2>
         <p style="max-width: 700px; margin: 0 auto;">
-            「チームSMK」は、友達で結成された運営・管理チームです。<br>
+            「チームSMK」は、地元の友達5人で結成された運営・管理チームです。<br>
             SNSからシステムまで自分たちで整え、常に新しい「おもしろい」を企画し続けています。
         </p>
     </section>
 
+    <!-- 元に戻した -->
     <section class="section">
         <h2>MEMBER INTRODUCTION</h2>
         <p style="margin-bottom: 30px; color: #636e72;">メンバーの詳しいプロフィールはこちら</p>
@@ -256,7 +243,11 @@
         <ul class="history-list">
             <li class="history-item">
                 <span class="history-date">2026.01</span>
-                <span class="history-content">公式サイト 公開</span>
+                <span class="history-content">公式サイト リニューアル公開</span>
+            </li>
+            <li class="history-item">
+                <span class="history-date">2025.12</span>
+                <span class="history-content">公式SNS 総フォロワー数目標達成</span>
             </li>
         </ul>
     </section>
@@ -265,51 +256,23 @@
         <h2>OFFICIAL SNS</h2>
         <div class="official-sns">
             <a href="#" class="sns-item">
-                <div class="sns-btn x-twitter"><i class="fa-brands fa-x-twitter"></i></div>
+                <div class="sns-btn x-twitter"></div>
                 <span class="sns-name">X (Twitter)</span>
             </a>
             <a href="#" class="sns-item">
-                <div class="sns-btn instagram"><i class="fa-brands fa-instagram"></i></div>
+                <div class="sns-btn instagram"></div>
                 <span class="sns-name">Instagram</span>
             </a>
             <a href="#" class="sns-item">
-                <div class="sns-btn youtube"><i class="fa-brands fa-youtube"></i></div>
+                <div class="sns-btn youtube"></div>
                 <span class="sns-name">YouTube</span>
             </a>
         </div>
     </section>
 
-    <div class="member-grid">
-        <div class="member-card">
-            <div class="badge bg-leader">リーダー</div>
-            <div class="icon-circle bg-sakura">😎</div>
-            <h3>桜紅葉</h3>
-            <span class="job">SNS運営/管理・システム管理</span>
-            <p class="bio">チーム全体のまとめ役。SNS・システム管理を担当。</p>
-        </div>
-        <div class="member-card">
-            <div class="badge bg-sub">サブリーダー</div>
-            <div class="icon-circle bg-kai">⚾️</div>
-            <h3>かい</h3>
-            <span class="job">管理</span>
-            <p class="bio">細かい管理と安定運営を支える守護神。</p>
-        </div>
-        <div class="member-card">
-            <div class="badge bg-mod">メンバー</div>
-            <div class="icon-circle bg-moti">🎨</div>
-            <h3>モティモティ</h3>
-            <span class="job">SNS管理・企画提案</span>
-            <p class="bio">企画提案とSNS運営でチームを動かす存在。</p>
-        </div>
-        <div class="member-card">
-            <div class="badge bg-mod">メンバー</div>
-            <div class="icon-circle bg-sei">🐹</div>
-            <h3>せい</h3>
-            <span class="job">企画・動画・盛り上げ</span>
-            <p class="bio">ムードメーカーとして企画と動画で盛り上げる。</p>
-        </div>
-    </div>
 </div>
+
 <footer>&copy; SMK Team Official 2026</footer>
+
 </body>
 </html>
