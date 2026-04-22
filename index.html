@@ -12,28 +12,15 @@
         body {
             margin: 0;
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
-            background: #f0f4f8;
+            /* 背景を水色一色に変更 */
+            background-color: #f0f8ff;
             color: #2d3436;
             overflow-x: hidden;
         }
 
+        /* 背景グラデーションのアニメーションを削除 */
         .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
-            opacity: 0.1;
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            display: none;
         }
 
         header {
@@ -84,14 +71,17 @@
             padding: 0 40px 100px;
         }
 
+        /* コンテンツ部分の設定 */
+        .section, .member-card {
+            background: #ffffff;
+            border: 1px solid rgba(255,255,255,1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
         .section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
             padding: 50px;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
             margin-bottom: 60px;
-            border: 1px solid rgba(255,255,255,0.5);
         }
 
         h2 {
@@ -118,24 +108,22 @@
         }
 
         .member-card {
-            background: #fff;
             padding: 40px 30px;
             border-radius: 25px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #f0f0f0;
             text-align: center;
         }
 
         .member-card:hover {
             transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px rgba(110, 142, 251, 0.15);
         }
 
+        /* アイコンサークルの個別カラー設定（固定） */
         .icon-circle {
             width: 120px;
             height: 120px;
             margin: 0 auto 25px;
-            background: #f8f9fa;
             border-radius: 40px;
             display: flex;
             align-items: center;
@@ -144,6 +132,12 @@
             transform: rotate(-5deg);
             transition: transform 0.3s ease;
         }
+
+        .bg-sakura { background: #ffeaa7; }
+        .bg-kai { background: #fab1a0; }
+        .bg-moti { background: #dff9fb; }
+        .bg-sei { background: #e8f8f5; }
+        .bg-agre { background: #dfe6e9; }
 
         .member-card:hover .icon-circle {
             transform: rotate(0deg) scale(1.1);
@@ -162,7 +156,6 @@
         .bg-leader { background: #ffeaa7; color: #d35400; }
         .bg-sub { background: #dff9fb; color: #0984e3; }
         .bg-mod { background: #e8f8f5; color: #16a085; }
-        .bg-admin { background: #f3e5f5; color: #8e44ad; }
 
         h3 { margin: 10px 0; font-size: 1.5rem; }
 
@@ -192,8 +185,6 @@
 
 <body>
 
-<div class="bg-gradient"></div>
-
 <header>
     <img src="smk.png" alt="SMK Logo" class="logo">
     <h1>TEAM SMK</h1>
@@ -214,7 +205,7 @@
         <!-- 桜紅葉 -->
         <div class="member-card">
             <div class="badge bg-leader">リーダー</div>
-            <div class="icon-circle">😎</div>
+            <div class="icon-circle bg-sakura">😎</div>
             <h3>桜紅葉</h3>
             <span class="job">担当：SNS運営/管理・システム管理</span>
             <p class="bio">チーム全体のまとめ役。SNS・システム管理を担当。</p>
@@ -223,7 +214,7 @@
         <!-- かい -->
         <div class="member-card">
             <div class="badge bg-sub">サブリーダー</div>
-            <div class="icon-circle">⚾️</div>
+            <div class="icon-circle bg-kai">⚾️</div>
             <h3>かい</h3>
             <span class="job">担当：管理</span>
             <p class="bio">細かい管理と安定運営を支える守護神。</p>
@@ -232,7 +223,7 @@
         <!-- モティモティ -->
         <div class="member-card">
             <div class="badge bg-mod">メンバー</div>
-            <div class="icon-circle">🎨</div>
+            <div class="icon-circle bg-moti">🎨</div>
             <h3>モティモティ</h3>
             <span class="job">担当：SNS管理・企画提案</span>
             <p class="bio">企画提案とSNS運営でチームを動かす存在。</p>
@@ -241,7 +232,7 @@
         <!-- せい -->
         <div class="member-card">
             <div class="badge bg-mod">メンバー</div>
-            <div class="icon-circle">🐹</div>
+            <div class="icon-circle bg-sei">🐹</div>
             <h3>せい</h3>
             <span class="job">担当：企画提案・動画提供・盛り上げ</span>
             <p class="bio">ムードメーカーとして企画と動画で盛り上げる。</p>
@@ -250,7 +241,7 @@
         <!-- アグレ -->
         <div class="member-card">
             <div class="badge bg-mod">メンバー</div>
-            <div class="icon-circle">🚙</div>
+            <div class="icon-circle bg-agre">🚙</div>
             <h3>アグレ</h3>
             <span class="job">担当：企画提案・SNS管理</span>
             <p class="bio">SNSの健全な運用と安全性を確保。管理の面からチームを支える。</p>
