@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC PROJECT | TEAM SMK</title>
+    <link rel="icon" href="smk.png" type="image/png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #a8e063, #56ab2f);
+            color: #2d3436;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #6e8efb;
+            margin-bottom: 15px;
+        }
+
+        .value-box {
+            margin-bottom: 15px;
+        }
+
+        .value {
+            font-size: 1.1rem;
+            background: #f1f2f6;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .copy-btn {
+            margin-top: 5px;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 15px;
+            background: #6e8efb;
+            color: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .copy-btn:hover {
+            background: #4a6cf7;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: white;
+            color: #2d3436;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎮 MINECRAFT SERVER</h1>
+
+    <!-- Java -->
+    <div class="card">
+        <div class="label">Java</div>
+        <div class="value" id="java">○○</div>
+        <button class="copy-btn" onclick="copyText('java')">コピー</button>
+    </div>
+
+    <!-- BE（同じカード内で分ける） -->
+    <div class="card">
+        <div class="label">BE</div>
+
+        <div class="value-box">
+            <div class="value" id="be">○○</div>
+            <button class="copy-btn" onclick="copyText('be')">アドレスコピー</button>
+        </div>
+
+        <div class="value-box">
+            <div class="value" id="port">○○</div>
+            <button class="copy-btn" onclick="copyText('port')">PORTコピー</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">← トップに戻る</a>
+</div>
+
+<script>
+function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("コピーしました: " + text);
+}
+</script>
+
+</body>
+</html>
