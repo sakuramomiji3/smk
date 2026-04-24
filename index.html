@@ -14,6 +14,7 @@
             font-family: 'Poppins', "Hiragino Sans", "Meiryo", sans-serif;
             background: linear-gradient(135deg, #eaf3ff, #fdfbff);
             color: #2d3436;
+            overflow-x: hidden;
         }
 
         header {
@@ -32,7 +33,7 @@
             width: 400px;
             height: 400px;
             background: radial-gradient(circle, rgba(110,142,251,0.4), transparent);
-            filter: blur(100px);
+            filter: blur(80px);
             z-index: -1;
         }
 
@@ -42,13 +43,14 @@
             object-fit: contain;
             margin-bottom: 20px;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
             animation: float 3s ease-in-out infinite;
+            will-change: transform;
         }
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0px); }
         }
 
@@ -76,17 +78,24 @@
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
             padding: 50px;
             border-radius: 30px;
             margin-bottom: 60px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+
             text-align: center;
-            transition: all 0.8s ease;
+
+            transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
+
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
+
+            will-change: transform, opacity;
         }
 
         .section.show {
@@ -95,8 +104,8 @@
         }
 
         .section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.10);
         }
 
         h2 {
@@ -115,22 +124,20 @@
             border-radius: 2px;
         }
 
-        /* =========================
-           ボタン（小さく調整）
-        ========================= */
-
+        /* ボタン */
         .intro-section-btn,
         .sns-btn {
-            padding: 14px 30px; /* ←ここ小さくした */
+            padding: 12px 26px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
             font-weight: bold;
             letter-spacing: 0.1em;
-            overflow: hidden;
             position: relative;
             display: inline-block;
-            transition: 0.3s ease;
+            overflow: hidden;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            will-change: transform;
         }
 
         .intro-section-btn {
@@ -149,18 +156,18 @@
             left: -75%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.7), transparent);
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
             transform: skewX(-25deg);
         }
 
         .intro-section-btn:hover::before,
         .sns-btn:hover::before {
-            animation: shine 0.8s ease;
+            animation: shine 0.7s ease;
         }
 
         .intro-section-btn:hover,
         .sns-btn:hover {
-            transform: translateY(-6px) scale(1.05);
+            transform: translateY(-4px) scale(1.03);
         }
 
         @keyframes shine {
@@ -182,20 +189,17 @@
             color: #b2bec3;
         }
 
-        body { overflow-x: hidden; }
-
         img {
             max-width: 100%;
             height: auto;
         }
-
     </style>
 </head>
 
 <body>
 
 <header>
-    <img src="smk.png" class="logo">
+    <img src="smk.png" class="logo" loading="lazy">
     <h1>TEAM SMK</h1>
     <p>CREATE OUR OWN VIBES</p>
 </header>
@@ -210,7 +214,6 @@
         </p>
     </section>
 
-    <!-- 自己紹介（小さくなってる） -->
     <section class="section">
         <h2>MEMBER INTRODUCTION</h2>
         <a href="introduction.html" class="intro-section-btn">
@@ -218,7 +221,6 @@
         </a>
     </section>
 
-    <!-- マイクラ（小さくなってる） -->
     <section class="section">
         <h2>MINECRAFT PROJECT</h2>
         <p style="margin-bottom: 30px; color: #636e72;">
