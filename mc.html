@@ -1,118 +1,169 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC PROJECT | TEAM SMK</title>
-    <link rel="icon" href="smk.png" type="image/png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC PROJECT | TEAM SMK</title>
+<link rel="icon" href="smk.png" type="image/png">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #a8e063, #56ab2f);
-            color: #2d3436;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', "Hiragino Sans", "Meiryo", sans-serif;
+    background: linear-gradient(135deg, #eaf3ff, #fdfbff);
+    color: #2d3436;
+}
 
-        h1 {
-            font-size: 2.5rem;
-            color: white;
-        }
+/* ヘッダー */
+header {
+    text-align: center;
+    padding: 80px 20px 30px;
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
+header h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    background: linear-gradient(135deg, #6e8efb, #56ab2f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-        .label {
-            font-weight: bold;
-            color: #6e8efb;
-            margin-bottom: 15px;
-        }
+/* コンテナ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 80px;
+}
 
-        .value-box {
-            margin-bottom: 15px;
-        }
+/* ガラスカード */
+.card {
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
 
-        .value {
-            font-size: 1.1rem;
-            background: #f1f2f6;
-            padding: 10px;
-            border-radius: 10px;
-        }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-        .copy-btn {
-            margin-top: 5px;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 15px;
-            background: #6e8efb;
-            color: white;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
+/* ラベル */
+.label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2d3436;
+}
 
-        .copy-btn:hover {
-            background: #4a6cf7;
-        }
+/* 値 */
+.value {
+    background: rgba(255,255,255,0.8);
+    padding: 12px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
 
-        .back-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background: white;
-            color: #2d3436;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-    </style>
+/* コピー */
+.copy-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #6e8efb, #4a6cf7);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(110,142,251,0.3);
+}
+
+/* 戻るボタン */
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    background: white;
+    color: #2d3436;
+    font-weight: bold;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: translateY(-5px);
+}
+
+/* ポート横並び */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 700px){
+    .row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
 
+<header>
+    <h1>MINECRAFT SERVER</h1>
+</header>
+
 <div class="container">
-    <h1>🎮 MINECRAFT SERVER</h1>
 
     <!-- Java -->
     <div class="card">
-        <div class="label">Java</div>
+        <div class="label">JAVA EDITION</div>
         <div class="value" id="java">sm-je.f5.si</div>
-        <button class="copy-btn" onclick="copyText('java')">コピー</button>
+        <button class="copy-btn" onclick="copyText('java')">アドレスをコピー</button>
     </div>
 
-    <!-- BE（同じカード内で分ける） -->
+    <!-- BE -->
     <div class="card">
-        <div class="label">BE</div>
+        <div class="label">BEDROCK EDITION</div>
 
-        <div class="value-box">
-            <div class="value" id="be">sm-be.f5.si</div>
-            <button class="copy-btn" onclick="copyText('be')">アドレスコピー</button>
-        </div>
+        <div class="row">
+            <div>
+                <div class="value" id="be">sm-be.f5.si</div>
+                <button class="copy-btn" onclick="copyText('be')">アドレスコピー</button>
+            </div>
 
-        <div class="value-box">
-            <div class="value" id="port">18678</div>
-            <button class="copy-btn" onclick="copyText('port')">ポートコピー</button>
+            <div>
+                <div class="value" id="port">18678</div>
+                <button class="copy-btn" onclick="copyText('port')">ポートコピー</button>
+            </div>
         </div>
     </div>
 
-    <a href="index.html" class="back-btn">← トップに戻る</a>
+    <div style="text-align:center;">
+        <a href="index.html" class="back-btn">← HOMEに戻る</a>
+    </div>
+
 </div>
 
 <script>
 function copyText(id) {
     const text = document.getElementById(id).innerText;
     navigator.clipboard.writeText(text);
-    alert("コピーしました: " + text);
 }
 </script>
 
