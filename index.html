@@ -95,6 +95,60 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(110, 142, 251, 0.4);
         }
+
+        /* ===== SNSボタン追加 ===== */
+        .sns-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .sns-btn {
+            position: relative;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .twitter {
+            background: linear-gradient(135deg, #000000, #434343);
+        }
+        .youtube {
+            background: linear-gradient(135deg, #ff0000, #ff5e5e);
+        }
+        .sns-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .sns-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.6),
+                transparent
+            );
+            transform: skewX(-25deg);
+        }
+        .sns-btn:hover::before {
+            animation: shine 0.8s ease;
+        }
+        @keyframes shine {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+        /* ===== ここまで ===== */
+
         footer {
             text-align: center;
             padding: 50px;
@@ -128,7 +182,6 @@
         </a>
     </section>
 
-    <!-- ★ここをマイクラ用に変更 -->
     <section class="section">
         <h2>MINECRAFT PROJECT</h2>
         <p style="margin-bottom: 30px; color: #636e72;">
@@ -137,6 +190,19 @@
         <a href="mc.html" class="intro-section-btn">
             マイクラページを見る
         </a>
+    </section>
+
+    <!-- ★ SNSセクション追加 -->
+    <section class="section">
+        <h2>FOLLOW US</h2>
+        <div class="sns-buttons">
+            <a href="https://twitter.com/あなたのID" target="_blank" class="sns-btn twitter">
+                X (Twitter)
+            </a>
+            <a href="https://www.youtube.com/@あなたのチャンネル" target="_blank" class="sns-btn youtube">
+                YouTube
+            </a>
+        </div>
     </section>
 
 </div>
