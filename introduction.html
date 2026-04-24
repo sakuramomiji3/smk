@@ -14,6 +14,7 @@ body {
     font-family: 'Poppins', "Hiragino Sans", "Meiryo", sans-serif;
     background: linear-gradient(135deg, #eaf3ff, #fdfbff);
     color: #2d3436;
+    overflow-x: hidden;
 }
 
 /* ヘッダー */
@@ -24,6 +25,18 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+}
+
+/* ふわっと光 */
+header::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(110,142,251,0.4), transparent);
+    filter: blur(100px);
+    z-index: -1;
 }
 
 header h1 {
@@ -50,7 +63,7 @@ header h1 {
     padding: 0 40px 100px;
 }
 
-/* ガラスカード */
+/* セクション */
 .section {
     background: rgba(255,255,255,0.6);
     backdrop-filter: blur(15px);
@@ -59,6 +72,22 @@ header h1 {
     padding: 40px;
     margin-bottom: 50px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: all 0.6s ease;
+}
+
+/* 表示 */
+.section.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ホバー */
+.section:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.15);
 }
 
 /* メンバーカード */
@@ -68,6 +97,11 @@ header h1 {
     gap: 25px;
     align-items: center;
     margin-bottom: 40px;
+    transition: 0.3s;
+}
+
+.member:hover {
+    transform: scale(1.02);
 }
 
 .icon {
@@ -79,6 +113,13 @@ header h1 {
     justify-content: center;
     font-size: 3rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
 
 h2 {
@@ -114,8 +155,6 @@ h2 {
 }
 
 /* レスポンシブ */
-body { overflow-x: hidden; }
-
 img {
     max-width: 100%;
     height: auto;
@@ -188,7 +227,6 @@ img {
 
 <div class="container">
 
-    <!-- 桜紅葉 -->
     <div class="section">
         <div class="member">
             <div class="icon sakura">😎</div>
@@ -196,13 +234,12 @@ img {
                 <h2>桜紅葉</h2>
                 <div class="tag leader">LEADER</div>
                 <p>担当：SNS運営 / システム管理</p>
-                <p>好き：ゲーム / IT機器</p>
+                <p>好きなこと：ゲーム / IT機器</p>
                 <div class="msg">「Team SMKを最高のチームにします！」</div>
             </div>
         </div>
     </div>
 
-    <!-- かい -->
     <div class="section">
         <div class="member">
             <div class="icon kai">⚾️</div>
@@ -210,13 +247,12 @@ img {
                 <h2>かい</h2>
                 <div class="tag sub">SUB LEADER</div>
                 <p>担当：管理</p>
-                <p>好き：野球 / ブロスタ</p>
-                <div class="msg">「縁の下の力持ちとして支えます。」</div>
+                <p>好きなこと：野球 / ブロスタ</p>
+                <div class="msg">「安心安全なサービスを提供します。」</div>
             </div>
         </div>
     </div>
 
-    <!-- モティモティ -->
     <div class="section">
         <div class="member">
             <div class="icon moti">🎨</div>
@@ -224,13 +260,12 @@ img {
                 <h2>モティモティ</h2>
                 <div class="tag memberTag">MEMBER</div>
                 <p>担当：SNS / 動画 / 企画</p>
-                <p>好き：ゲーム</p>
+                <p>好きな食べ物：サーモン</p>
                 <div class="msg">「ワクワクする企画を作る！」</div>
             </div>
         </div>
     </div>
 
-    <!-- せい -->
     <div class="section">
         <div class="member">
             <div class="icon sei">🐹</div>
@@ -238,7 +273,7 @@ img {
                 <h2>せい</h2>
                 <div class="tag memberTag">MEMBER</div>
                 <p>担当：企画 / 動画 / 盛り上げ</p>
-                <p>好き：ポケモン / フォートナイト</p>
+                <p>好きなこと：ポケモン / フォートナイト</p>
                 <div class="msg">「みんなを楽しく盛り上げる！」</div>
             </div>
         </div>
@@ -249,6 +284,24 @@ img {
 <footer style="text-align:center; padding:40px; color:#b2bec3;">
     &copy; SMK Team Official 2026
 </footer>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+</script>
 
 </body>
 </html>
