@@ -109,6 +109,10 @@
             border-radius: 2px;
         }
 
+        /* =========================
+           ボタン（サイズ戻し＋アニメあり）
+        ========================= */
+
         .intro-section-btn {
             display: inline-flex;
             align-items: center;
@@ -122,7 +126,31 @@
             font-weight: bold;
             box-shadow: 0 10px 25px rgba(110, 142, 251, 0.3);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .intro-section-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(110, 142, 251, 0.4);
+        }
+
+        .intro-section-btn::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(255,255,255,0.2);
+            transition: 0.4s;
+        }
+
+        .intro-section-btn:hover::after {
+            width: 100%;
+        }
+
+        /* ========================= */
 
         .sns-buttons {
             display: flex;
@@ -132,16 +160,34 @@
         }
 
         .sns-btn {
+            position: relative;
             padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
             font-weight: bold;
+            letter-spacing: 0.1em;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        .twitter { background: linear-gradient(135deg, #111, #555); }
-        .youtube { background: linear-gradient(135deg, #ff0000, #ff6a6a); }
-        .discord { background: linear-gradient(135deg, #5865F2, #8ea1ff); }
+        .twitter {
+            background: linear-gradient(135deg, #111, #555);
+        }
+
+        .youtube {
+            background: linear-gradient(135deg, #ff0000, #ff6a6a);
+        }
+
+        .discord {
+            background: linear-gradient(135deg, #5865F2, #8ea1ff);
+        }
+
+        .sns-btn:hover {
+            transform: translateY(-6px) scale(1.07);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
 
         footer {
             text-align: center;
@@ -215,7 +261,7 @@
 <body>
 
 <header>
-    <img src="smk.png" class="logo">
+    <img src="smk.png" alt="SMK Logo" class="logo">
     <h1>TEAM SMK</h1>
     <p>CREATE OUR OWN VIBES</p>
 </header>
@@ -224,12 +270,17 @@
 
     <section class="section">
         <h2>わたしたちについて</h2>
-        <p>「チームSMK」は、地元の友達5人で結成された運営チームです。</p>
+        <p style="max-width: 700px; margin: 0 auto;">
+            「チームSMK」は、地元の友達5人で結成された運営・管理チームです。<br>
+            SNSからシステムまで自分たちで整え、常に新しい「おもしろい」を企画し続けています。
+        </p>
     </section>
 
     <section class="section">
         <h2>MEMBER INTRODUCTION</h2>
-        <a href="introduction.html" class="intro-section-btn">全員の自己紹介を見る</a>
+        <a href="introduction.html" class="intro-section-btn">
+            全員の自己紹介を見る
+        </a>
     </section>
 
     <section class="section">
